@@ -1,5 +1,7 @@
+#include "color.h"
+#include "vec3.h"
+
 #include <iostream>
-#include "main.h"
 
 int main()
 {
@@ -16,15 +18,8 @@ int main()
 		std::clog << "\rScanlines Remaining" << (image_height - j) << ' ' << std::flush;
 		for (int i{}; i < image_width; i++)
 		{
-			double r = double(i) / (image_width - 1);
-			double g = double(j) / (image_height - 1);
-			double b = 0.0;
-
-			int ir = int(255.999 * r);
-			int ig = int(255.999 * g);
-			int ib = int(255.999 * b);
-
-			std::cout << ir << ' ' << ig << ' ' << ib << '\n';
+			color pixel_color = color(static_cast<double>(i) / (image_width - 1), static_cast<double>(j) / (image_height - 1), 0.0);
+			write_color(std::cout, pixel_color);
 		}
 	}
 
