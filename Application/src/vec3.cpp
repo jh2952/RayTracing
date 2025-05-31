@@ -1,58 +1,58 @@
 #include "vec3.h"
 
 vec3::vec3()
-	: xyz{0.0, 0.0, 0.0}
+	: m_xyz{0.0, 0.0, 0.0}
 {
 }
 
 vec3::vec3(double x, double y, double z)
-	: xyz{x, y, z}
+	: m_xyz{x, y, z}
 {
 }
 
 double vec3::x() const 
 { 
-	return xyz[0];
+	return m_xyz[0];
 }
 
 double vec3::y() const 
 {
-	return xyz[1];
+	return m_xyz[1];
 }
 
 double vec3::z() const 
 { 
-	return xyz[2];
+	return m_xyz[2];
 }
 
 vec3 vec3::operator-() const 
 { 
-	return vec3(-xyz[0], -xyz[1], -xyz[2]);
+	return vec3(-m_xyz[0], -m_xyz[1], -m_xyz[2]);
 }
 
 double vec3::operator[](int i) const 
 { 
-	return xyz[i];
+	return m_xyz[i];
 }
 
 double& vec3::operator[](int i)
 { 
-	return xyz[i];
+	return m_xyz[i];
 }
 
 vec3& vec3::operator+=(const vec3& v)
 {
-	xyz[0] += v.xyz[0];
-	xyz[1] += v.xyz[1];
-	xyz[2] += v.xyz[2];
+	m_xyz[0] += v.m_xyz[0];
+	m_xyz[1] += v.m_xyz[1];
+	m_xyz[2] += v.m_xyz[2];
 	return *this;
 }
 
 vec3& vec3::operator*=(double a)
 {
-	xyz[0] *= a;
-	xyz[1] *= a;
-	xyz[2] *= a;
+	m_xyz[0] *= a;
+	m_xyz[1] *= a;
+	m_xyz[2] *= a;
 	return *this;
 }
 
@@ -68,32 +68,32 @@ double vec3::length() const
 
 double vec3::length_squared() const
 {
-	return xyz[0] * xyz[0] + xyz[1] * xyz[1] + xyz[2] * xyz[2];
+	return m_xyz[0] * m_xyz[0] + m_xyz[1] * m_xyz[1] + m_xyz[2] * m_xyz[2];
 }
 
 std::ostream& operator<<(std::ostream& out, const vec3& v)
 {
-	return out << v.xyz[0] << ' ' << v.xyz[1] << ' ' << v.xyz[2];
+	return out << v.m_xyz[0] << ' ' << v.m_xyz[1] << ' ' << v.m_xyz[2];
 }
 
 vec3 operator+(const vec3& u, const vec3& v)
 {
-	return vec3(u.xyz[0] + v.xyz[0], u.xyz[1] + v.xyz[1], u.xyz[2] + v.xyz[2]);
+	return vec3(u.m_xyz[0] + v.m_xyz[0], u.m_xyz[1] + v.m_xyz[1], u.m_xyz[2] + v.m_xyz[2]);
 }
 
 vec3 operator-(const vec3& u, const vec3& v)
 {
-	return vec3(u.xyz[0] - v.xyz[0], u.xyz[1] - v.xyz[1], u.xyz[2] - v.xyz[2]);
+	return vec3(u.m_xyz[0] - v.m_xyz[0], u.m_xyz[1] - v.m_xyz[1], u.m_xyz[2] - v.m_xyz[2]);
 }
 
 vec3 operator*(const vec3& u, const vec3& v) 
 {
-	return vec3(u.xyz[0] * v.xyz[0], u.xyz[1] * v.xyz[1], u.xyz[2] * v.xyz[2]);
+	return vec3(u.m_xyz[0] * v.m_xyz[0], u.m_xyz[1] * v.m_xyz[1], u.m_xyz[2] * v.m_xyz[2]);
 }
 
 vec3 operator*(double a, const vec3& v) 
 {
-	return vec3(a * v.xyz[0], a * v.xyz[1], a * v.xyz[2]);
+	return vec3(a * v.m_xyz[0], a * v.m_xyz[1], a * v.m_xyz[2]);
 }
 
 vec3 operator*(const vec3& v, double a) 
@@ -108,16 +108,16 @@ vec3 operator/(const vec3& v, double a)
 
 double dot(const vec3& u, const vec3& v) 
 {
-	return u.xyz[0] * v.xyz[0]
-		+ u.xyz[1] * v.xyz[1]
-		+ u.xyz[2] * v.xyz[2];
+	return u.m_xyz[0] * v.m_xyz[0]
+		+ u.m_xyz[1] * v.m_xyz[1]
+		+ u.m_xyz[2] * v.m_xyz[2];
 }
 
 vec3 cross(const vec3& u, const vec3& v) 
 {
-	return vec3(u.xyz[1] * v.xyz[2] - u.xyz[2] * v.xyz[1],
-		u.xyz[2] * v.xyz[0] - u.xyz[0] * v.xyz[2],
-		u.xyz[0] * v.xyz[1] - u.xyz[1] * v.xyz[0]);
+	return vec3(u.m_xyz[1] * v.m_xyz[2] - u.m_xyz[2] * v.m_xyz[1],
+		u.m_xyz[2] * v.m_xyz[0] - u.m_xyz[0] * v.m_xyz[2],
+		u.m_xyz[0] * v.m_xyz[1] - u.m_xyz[1] * v.m_xyz[0]);
 }
 
 vec3 unit_vector(const vec3& v) 

@@ -7,7 +7,7 @@
 class vec3
 {
 public:
-	double xyz[3];
+	double m_xyz[3];
 
 	vec3();
 	vec3(double x, double y, double z);
