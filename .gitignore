@@ -10,3 +10,7 @@ premake5.exe
 
 # Render files
 **.ppm
+
+# Binaries
+/bin
+/bin-int
