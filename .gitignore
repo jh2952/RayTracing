@@ -7,3 +7,6 @@ premake5.exe
 **.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
+
+# Render files
+**.ppm
