@@ -1,0 +1,9 @@
+# Premake binary
+premake5.exe
+
+# Visual Studio Files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
