@@ -9,6 +9,9 @@ public:
 	point3 m_p;
 	vec3 m_normal;
 	double m_t;
+	bool m_front_face;
+
+	void set_face_normal(const ray& r, const vec3& outward_normal);
 };
 
 class hittable
