@@ -1,3 +1,4 @@
+#include "util.h"
 #include "color.h"
 
 void write_color(std::ostream& out, const color& pixel_color)

@@ -1,3 +1,4 @@
+#include "util.h"
 #include "sphere.h"
 
 sphere::sphere(const point3& center, double radius)

@@ -1,3 +1,4 @@
+#include "util.h"
 #include "hittable_list.h"
 
 hittable_list::hittable_list()
