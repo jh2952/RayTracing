@@ -29,7 +29,6 @@ int main()
 	image_height = (image_height < 1) ? 1 : image_height;
 
 	// World
-
 	hittable_list world;
 
 	world.add(make_shared<sphere>(point3(0, 0, -1), 0.5));
@@ -54,7 +53,6 @@ int main()
 	vec3 pixel00_location = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
 	// Render
-
 	std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
 	// #TODO : Some hardware acceleration here
